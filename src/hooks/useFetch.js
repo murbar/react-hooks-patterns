@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import useToggle from './useToggle';
 
 function useFetch(url) {
   const [data, setData] = useState(null);
