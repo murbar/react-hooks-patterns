@@ -16,7 +16,7 @@ export default function useLocalStorageState(key, initialValue = null) {
   });
 
   useEffect(() => {
-    window.localStorage.setItem(key, state);
+    window.localStorage.setItem(key, JSON.stringify(state));
   }, [state, key]);
 
   return [state, setState];
