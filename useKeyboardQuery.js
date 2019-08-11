@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 // add a class to body when user is using keyboard
+// useful to hide input/button outlines when using mouse
 
 export default function useKeyboardQuery(className) {
   useEffect(() => {

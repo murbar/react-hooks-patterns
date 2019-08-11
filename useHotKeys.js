@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 
 // keyHandlerMap = {
 //   key: callback,
-//   eg.
-//   'r': reset
+//   e.g.
+//   'd': () => doThing();
 // }
 
 export default function useHotKeys(keyHandlerMap) {

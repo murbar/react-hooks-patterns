@@ -1,16 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // e.g. to dismiss a menu when the user clicks away
+// returns ref that must be set to `ref` on element
 
-export default function useClickOutside(elementRef, callback) {
+export default function useClickOutside(callback) {
+  const ref = useRef();
+
   useEffect(() => {
     const handleClickAway = e => {
-      if (elementRef && !elementRef.current.contains(e.target)) {
+      if (ref && !ref.current.contains(e.target)) {
         callback(e);
       }
     };
 
     window.addEventListener('click', handleClickAway);
     return () => window.removeEventListener('click', handleClickAway);
-  }, [callback, elementRef]);
+  }, [callback]);
+
+  return ref;
 }
