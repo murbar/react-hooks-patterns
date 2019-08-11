@@ -19,3 +19,6 @@ const AppStateProvider = ({ children }) => {
 const useAppState = () => useContext(AppStateContext);
 
 export { AppStateProvider, useAppState };
+
+// wrap components that need access to this state with `<AppStateProvider>`
+// import `useAppState` to access state and actions
