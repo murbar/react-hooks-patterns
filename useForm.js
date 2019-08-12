@@ -8,7 +8,11 @@ const useForm = (onSubmit, initialValues) => {
   }, [initialValues]);
 
   const handleChange = e => {
-    const { name, value } = e.target;
+    let { name, value, type, checked } = e.target;
+
+    if (type === 'range' || type === 'number') value = parseInt(value);
+    if (type === 'checkbox') value = checked;
+
     setValues(prevValues => ({ ...prevValues, [name]: value }));
   };
 
