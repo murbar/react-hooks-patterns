@@ -1,5 +1,7 @@
-# React hooks examples
+# React collected code
 
-These are some hooks patterns I have used in my projects.
+- Hooks patterns I have used in projects
+- Useful components
+- Utilities
 
-They may contain bugs -- sometimes I forget to update the code here when I make a change. Sorry about that.
+Herein lies a big, no doubt -- sometimes I forget to update this repo when I improve the code sourced from here. Sorry about that.
