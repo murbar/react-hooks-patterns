@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const useToggle = (initialState = false) => {
-  const [state, setState] = useState(initialState);
+export default function useToggle(initial = false) {
+  const [isOn, setIsOn] = useState(initial);
 
-  const toggleState = () => {
-    setState(prev => !prev);
+  const toggle = bool => {
+    if (bool !== undefined) {
+      setIsOn(bool);
+    } else {
+      setIsOn(prev => !prev);
+    }
   };
 
-  return [state, toggleState];
-};
+  const toggleOn = () => setIsOn(true);
 
-export default useToggle;
+  const toggleOff = () => setIsOn(false);
+
+  useEffect(() => {
+    setIsOn(initial);
+  }, [initial]);
+
+  return { isOn, toggle, toggleOn, toggleOff };
+}
