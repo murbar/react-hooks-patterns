@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const useForm = (onSubmit, initialValues) => {
   const [values, setValues] = useState({});
@@ -19,7 +20,6 @@ const useForm = (onSubmit, initialValues) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit(values);
-    setValues({});
   };
 
   const handleClear = () => {
@@ -30,3 +30,7 @@ const useForm = (onSubmit, initialValues) => {
 };
 
 export default useForm;
+
+useForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
