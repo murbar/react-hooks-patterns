@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 
-function useViewportSize() {
+export default function useViewportSize() {
   const isClient = typeof window === 'object';
 
-  function getSize() {
+  const getSize = React.useCallback(() => {
     return {
       width: isClient ? window.innerWidth : undefined,
       height: isClient ? window.innerHeight : undefined
     };
-  }
+  }, [isClient]);
 
-  const [dimensions, setDimensions] = useState(getSize);
+  const [dimensions, setDimensions] = React.useState(getSize);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isClient) {
       return false;
     }
@@ -23,7 +23,7 @@ function useViewportSize() {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [getSize, isClient]);
 
   return dimensions;
 }
