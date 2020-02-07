@@ -6,7 +6,7 @@ const ErrorDisplay = styled.div`
   width: 80%;
   margin: 20% auto 0;
   p {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 `;
 
@@ -21,7 +21,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
-    if (this.state.errorInfo) {
+    if (this.state.error !== null) {
       return (
         <ErrorDisplay>
           <h1>Dang! Something went wrong. :(</h1>
